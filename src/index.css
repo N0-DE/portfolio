@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burnt-orange: #F04419;
+  --color-vivid-vermilion: #FF4B2B;
+  --color-warm-white: #F7F5F0;
+  --color-deep-black: #111111;
+  --color-soft-grey: #D8D6D0;
+  --color-muted-text: #77736E;
+  
+  --color-card-dark: #171717;
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+  --color-border-light: rgba(17, 17, 17, 0.12);
+
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: dark;
+  background-color: #111111;
+  color: #F7F5F0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #111111;
+}
+
+::selection {
+  background: #F04419;
+  color: #FFFFFF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F04419;
+}
+
+/* Editorial Crosshair Grid Background for Hero */
+.hero-grid-pattern {
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+.hero-grid-pattern-dark {
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.hero-grid-pattern-light {
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.06) 1px, transparent 1px);
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle crosshair plus decoration */
+.crosshair-corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+}
+.crosshair-corner::before,
+.crosshair-corner::after {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+}
+.crosshair-corner::before {
+  top: 4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.crosshair-corner::after {
+  left: 4px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
